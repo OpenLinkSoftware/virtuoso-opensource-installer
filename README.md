@@ -1,7 +1,6 @@
 # Virtuoso Open Source Installer
 
-## Additional files for Git https://github.com/openlink/virtuoso-opensource.git
-for create installer packages
+#### Additional files for Git https://github.com/openlink/virtuoso-opensource.git  for create installer packages
 
 Windows:
 
