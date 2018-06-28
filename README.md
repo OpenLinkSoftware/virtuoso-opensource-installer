@@ -18,8 +18,5 @@ Windows:
    to ~/windows/distr_scr/
    https://support.microsoft.com/en-gb/help/2977003/the-latest-supported-visual-c-downloads
 
-7. Run script ~/windows/mkdist.bat
-   It will create directory ~/windows/installer and move all required files to it.
-
-8. Open file ~/windows/installer/OpenLink_VOS7.iss with Inno Setup tool and run `Compile` .
-   It will create installer ~/windows/installer/Virtuoso_OpenSource_Server_7.20.x64.exe
+7. Open file ~/windows/installer/OpenLink_VOS7.iss with Inno Setup tool and run `Compile` .
+   It will create installer ~/windows/installer/Virtuoso_OpenSource_Server_7.2.x64.exe
