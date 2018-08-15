@@ -97,21 +97,20 @@ Source: "{#support_path}\virtuoso.ini"; DestDir: "{app}\database"; Flags: 64bit;
 
 Source: "{#src_path}\AUTHORS"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
 Source: "{#src_path}\COPYING"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
-Source: "{#src_path}\CREDITS"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
-Source: "{#src_path}\INSTALL"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
-Source: "{#src_path}\LICENSE"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
-Source: "{#src_path}\NEWS"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
+Source: "{#src_path}\CREDITS.md"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
+Source: "{#src_path}\INSTALL.md"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
+Source: "{#src_path}\LICENSE.md"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
+Source: "{#src_path}\NEWS.md"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
 Source: "{#src_path}\README"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
-Source: "{#src_path}\README.CVS"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
-Source: "{#src_path}\README.GIT"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
-Source: "{#src_path}\README.UPGRADE"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
-Source: "{#src_path}\README.WINDOWS"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
-Source: "{#src_path}\README.hibernate"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
-Source: "{#src_path}\README.jena"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
-Source: "{#src_path}\README.jsse"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
-Source: "{#src_path}\README.php5"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
-Source: "{#src_path}\README.sesame2"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
-Source: "{#src_path}\README.sesame3"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
+Source: "{#src_path}\README.GIT.md"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
+Source: "{#src_path}\README.UPGRADE.md"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
+Source: "{#src_path}\README.WINDOWS.md"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
+Source: "{#src_path}\README.hibernate.md"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
+Source: "{#src_path}\README.jena.md"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
+Source: "{#src_path}\README.jsse.md"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
+Source: "{#src_path}\README.php5.md"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
+Source: "{#src_path}\README.sesame2.md"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
+Source: "{#src_path}\README.sesame3.md"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
 
 Source: "{#bin_path}\creolewiki.dll"; DestDir: "{app}\hosting"; Flags: 64bit replacesameversion ignoreversion; Components: srv_comp; Check: IsWin64
 Source: "{#bin_path}\hosting_php.dll"; DestDir: "{app}\hosting"; Flags: 64bit replacesameversion ignoreversion; Components: srv_comp; Check: IsWin64
