@@ -183,14 +183,9 @@ Source: "{#src_path}\binsrc\sesame3\virt_sesame3.jar"; DestDir: "{app}\lib\sesam
 Source: "{#src_path}\binsrc\sesame4\virt_sesame4.jar"; DestDir: "{app}\lib\sesame4"; Flags: 64bit; Components: cln_comp; Check: IsWin64
 Source: "{#src_path}\binsrc\sesame4\create.xsl"; DestDir: "{app}\lib\sesame4"; Flags: 64bit; Components: cln_comp; Check: IsWin64
 Source: "{#src_path}\binsrc\sesame4\create-virtuoso.xsl"; DestDir: "{app}\lib\sesame4"; Flags: 64bit; Components: cln_comp; Check: IsWin64
-Source: "{#src_path}\libsrc\JDBCDriverType4\virtjdbc3.jar"; DestDir: "{app}\lib\jdbc-3.0"; Flags: 64bit; Components: cln_comp; Check: IsWin64
-Source: "{#src_path}\libsrc\JDBCDriverType4\virtjdbc3ssl.jar"; DestDir: "{app}\lib\jdbc-3.0"; Flags: 64bit; Components: cln_comp; Check: IsWin64
 Source: "{#src_path}\libsrc\JDBCDriverType4\virtjdbc4.jar"; DestDir: "{app}\lib\jdbc-4.0"; Flags: 64bit; Components: cln_comp; Check: IsWin64
-Source: "{#src_path}\libsrc\JDBCDriverType4\virtjdbc4ssl.jar"; DestDir: "{app}\lib\jdbc-4.0"; Flags: 64bit; Components: cln_comp; Check: IsWin64
 Source: "{#src_path}\libsrc\JDBCDriverType4\virtjdbc4_1.jar"; DestDir: "{app}\lib\jdbc-4.1"; Flags: 64bit; Components: cln_comp; Check: IsWin64
-Source: "{#src_path}\libsrc\JDBCDriverType4\virtjdbc4_1ssl.jar"; DestDir: "{app}\lib\jdbc-4.1"; Flags: 64bit; Components: cln_comp; Check: IsWin64
 Source: "{#src_path}\libsrc\JDBCDriverType4\virtjdbc4_2.jar"; DestDir: "{app}\lib\jdbc-4.2"; Flags: 64bit; Components: cln_comp; Check: IsWin64
-Source: "{#src_path}\libsrc\JDBCDriverType4\virtjdbc4_2ssl.jar"; DestDir: "{app}\lib\jdbc-4.2"; Flags: 64bit; Components: cln_comp; Check: IsWin64
 
 [Icons]
 Name: "{group}\Interactive SQL"; Filename: "{app}\bin\isql.exe"; WorkingDir: "{app}\bin"; Components: srv_comp
