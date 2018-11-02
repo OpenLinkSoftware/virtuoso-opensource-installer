@@ -31,7 +31,7 @@ AlwaysShowDirOnReadyPage=True
 AppId={{#AppId}
 PrivilegesRequired=admin
 DisableStartupPrompt=False
-LicenseFile={#src_path}\LICENSE
+LicenseFile={#src_path}\LICENSE.md
 VersionInfoVersion={#AppVersionFull}
 VersionInfoCompany=OpenLink Software
 VersionInfoTextVersion={#AppVersionFull}
@@ -118,6 +118,12 @@ Source: "{#bin_path}\im.dll"; DestDir: "{app}\hosting"; Flags: 64bit replacesame
 Source: "{#bin_path}\mediawiki.dll"; DestDir: "{app}\hosting"; Flags: 64bit replacesameversion ignoreversion; Components: srv_comp; Check: IsWin64
 Source: "{#bin_path}\wbxml2.dll"; DestDir: "{app}\hosting"; Flags: 64bit replacesameversion ignoreversion; Components: srv_comp; Check: IsWin64
 Source: "{#bin_path}\wikiv.dll"; DestDir: "{app}\hosting"; Flags: 64bit replacesameversion ignoreversion; Components: srv_comp; Check: IsWin64
+
+Source: "{#bin_path}\geos.dll"; DestDir: "{app}\hosting"; Flags: 64bit replacesameversion ignoreversion; Components: srv_comp; Check: IsWin64
+Source: "{#bin_path}\proj4.dll"; DestDir: "{app}\hosting"; Flags: 64bit replacesameversion ignoreversion; Components: srv_comp; Check: IsWin64
+Source: "{#bin_path}\shapefileio.dll"; DestDir: "{app}\hosting"; Flags: 64bit replacesameversion ignoreversion; Components: srv_comp; Check: IsWin64
+
+
 Source: "{#sdk_path}\php56\ext\php_bcmath.dll"; DestDir: "{app}\hosting\php"; Flags: 64bit; Components: srv_comp; Check: IsWin64
 Source: "{#sdk_path}\php56\ext\php_bz2.dll"; DestDir: "{app}\hosting\php"; Flags: 64bit; Components: srv_comp; Check: IsWin64
 Source: "{#sdk_path}\php56\ext\php_curl.dll"; DestDir: "{app}\hosting\php"; Flags: 64bit; Components: srv_comp; Check: IsWin64
@@ -149,6 +155,7 @@ Source: "{#src_path}\binsrc\vsp\admin_style.html"; DestDir: "{app}\vsp"; Flags: 
 Source: "{#src_path}\binsrc\vsp\bugsfixed.html"; DestDir: "{app}\vsp"; Flags: 64bit; Components: srv_comp; Check: IsWin64
 Source: "{#src_path}\binsrc\vsp\default.css"; DestDir: "{app}\vsp"; Flags: 64bit; Components: srv_comp; Check: IsWin64
 Source: "{#src_path}\binsrc\vsp\demo-index.html"; DestDir: "{app}\vsp"; Flags: 64bit; Components: srv_comp; Check: IsWin64
+Source: "{#src_path}\binsrc\vsp\demo-index.vsp"; DestDir: "{app}\vsp"; Flags: 64bit; Components: srv_comp; Check: IsWin64
 Source: "{#src_path}\binsrc\vsp\downfr.html"; DestDir: "{app}\vsp"; Flags: 64bit; Components: srv_comp; Check: IsWin64
 Source: "{#src_path}\binsrc\vsp\index.html"; DestDir: "{app}\vsp"; Flags: 64bit; Components: srv_comp; Check: IsWin64
 Source: "{#src_path}\binsrc\vsp\index1.html"; DestDir: "{app}\vsp"; Flags: 64bit; Components: srv_comp; Check: IsWin64
