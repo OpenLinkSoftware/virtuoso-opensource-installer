@@ -1,6 +1,6 @@
 #define AppVersion "7.2"
-#define AppVersionFull "7.2"
-#define AppCopyright="Copyright (C) 1998-2018 OpenLink Software"
+#define AppVersionFull "7.2.5.1"
+#define AppCopyright="Copyright (C) 1998-2020 OpenLink Software"
 #define AppId="{36EC02B5-E3FB-402C-858A-8EF4ADDD6EFC}"
 ;#define AppVersion GetFileVersion(AddBackslash(SourcePath) + "vos\bin\virtuoso-t.exe")
 
@@ -9,7 +9,7 @@
 #define src_path "..\.."
 #define sdk_path "..\..\SDK\x64"
 #define support_path "..\distr_src"
-
+#define VS2017  "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Redist\MSVC\14.16.27012"
 
 [Setup]
 AppName=OpenLink Virtuoso OpenSource Server (x64)(v{#AppVersionFull})
@@ -19,7 +19,7 @@ AppPublisher=OpenLink Software
 AppPublisherURL=http://virtuoso.openlinksw.com
 AppSupportURL=http://virtuoso.openlinksw.com
 AppUpdatesURL=http://virtuoso.openlinksw.com
-DefaultDirName={pf}\OpenLink Software\Virtuoso OpenSource {#AppVersion}
+DefaultDirName={commonpf}\OpenLink Software\Virtuoso OpenSource {#AppVersion}
 OutputBaseFilename=Virtuoso_OpenSource_Server_{#AppVersion}.x64
 OutputDir=.
 Compression=lzma2
@@ -42,7 +42,8 @@ VersionInfoProductTextVersion={#AppVersionFull}
 SetupMutex=OpenLink_VOS,Global\OpenLink_VOS
 AllowNoIcons=True
 DefaultGroupName=OpenLink Software\Virtuoso OpenSource {#AppVersion}
-RestartIfNeededByRun=False
+RestartIfNeededByRun=True
+WizardStyle=modern
 
 [Types]
 Name: "full"; Description: "Full installation"
@@ -68,9 +69,11 @@ Root: HKCU; Subkey: "SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags
 
 
 [Files]
+;; VS2017 components
+Source: "{#VS2017}\vcredist_x64.exe"; DestDir: "{app}"; Flags: 64bit; Components: cln_comp srv_comp; Check: IsWin64
+
 Source: "{#support_path}\srv_create.bat"; DestDir: "{app}"; Flags: 64bit; Components: srv_comp; Tasks: vos; Check: IsWin64
 Source: "{#support_path}\srv_delete.bat"; DestDir: "{app}"; Flags: 64bit; Components: srv_comp; Tasks: vos; Check: IsWin64
-Source: "{#support_path}\vcredist_x64.exe"; DestDir: "{app}"; Flags: 64bit; Components: cln_comp srv_comp; Check: IsWin64
 Source: "{#support_path}\Documentation.url"; DestDir: "{app}"; Flags: 64bit; Components: cln_comp srv_comp; Check: IsWin64
 Source: "{#support_path}\Virtuoso Conductor.url"; DestDir: "{app}"; Flags: 64bit; Components: srv_comp; Tasks: vos; Check: IsWin64
 
@@ -202,7 +205,7 @@ Name: "{group}\Virtuoso Conductor"; Filename: "{app}\Virtuoso Conductor.url"; Wo
 Name: "{group}\Virtuoso Services Control"; Filename: "{app}\bin\virtSCM.exe"; WorkingDir: "{app}\bin"; Components: srv_comp
 
 [Run]
-Filename: "{app}\vcredist_x64.exe"; Parameters: "/install /passive"; WorkingDir: "{app}"; Flags: waituntilterminated 64bit runminimized runascurrentuser hidewizard; Description: "Install MS VC++ 2017 Redistributable (x64) - 14.10.25008"; StatusMsg: "Install MS VC++ 2017 Redistributable (x64)"; Components: cln_comp srv_comp; Check: IsWin64
+Filename: "{app}\vcredist_x64.exe"; Parameters: "/install /passive"; WorkingDir: "{app}"; Flags: waituntilterminated 64bit runminimized runascurrentuser hidewizard; Description: "Install MS VC++ 2017 Redistributable (x64)"; StatusMsg: "Install MS VC++ 2017 Redistributable (x64)"; Components: cln_comp srv_comp; Check: IsWin64
 Filename: "regsvr32.exe"; Parameters: "/s ""{app}/bin/virtodbc.dll"""; WorkingDir: "{app}/bin"; Flags: waituntilterminated 64bit runminimized runascurrentuser; Description: "Register Virtuoso ODBC driver"; StatusMsg: "Register Virtuoso ODBC driver"; Components: cln_comp; Check: IsWin64
 Filename: "regsvr32.exe"; Parameters: "/s ""{app}/bin/virtoledb.dll"""; WorkingDir: "{app}/bin"; Flags: waituntilterminated 64bit runminimized runascurrentuser; Description: "Register Virtuoso OLEDB driver"; StatusMsg: "Register Virtuoso OLEDB driver"; Components: cln_comp; Check: IsWin64
 
@@ -226,7 +229,7 @@ var
 begin
   Log('CurStepChanged(' + IntToStr(Ord(CurStep)) + ') called');
 
-  if IsComponentSelected('srv_comp') then
+  if WizardIsComponentSelected('srv_comp') then
   begin
     if CurStep = ssInstall then begin
       if ServiceExists(SERVICE_NAME) then begin
@@ -243,6 +246,8 @@ begin
         ExpandConstant('{app}\bin\virtuoso.exe')+' -I "'+SERVICE_NAME+'" -c "'+ExpandConstant('{app}\database\virtuoso.ini')+'"',
         SERVICE_AUTO_START, '', '', False, False);
 
+      // remove mark service as 32bit
+      RegDeleteValue(HKLM, 'SYSTEM\CurrentControlSet\Services\'+SERVICE_NAME, 'WOW64'); 
       ShellExec ('', 'sc.exe','description '+SERVICE_NAME+' "'+SERVICE_DESCRIPTION+'"','', SW_HIDE, ewNoWait, ErrorCode);
       SimpleStartService(SERVICE_NAME, True, False);
     end;
