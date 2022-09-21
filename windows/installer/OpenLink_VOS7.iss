@@ -172,7 +172,8 @@ Source: "{#src_path}\binsrc\vsp\robots.txt"; DestDir: "{app}\vsp"; Flags: 64bit;
 Source: "{#src_path}\binsrc\vsp\admin\index_left.vsp"; DestDir: "{app}\vsp\admin"; Flags: 64bit; Components: srv_comp; Check: IsWin64
 Source: "{#src_path}\binsrc\vsp\vsmx\*"; DestDir: "{app}\vsp\vsmx"; Flags: recursesubdirs 64bit; Components: srv_comp; Check: IsWin64
 Source: "{#src_path}\binsrc\vsp\images\*"; DestDir: "{app}\vsp\images"; Flags: recursesubdirs 64bit; Components: srv_comp; Check: IsWin64
-
+Source: "{#src_path}\binsrc\vsp\favicon.ico"; DestDir: "{app}\vsp"; Flags: 64bit; Components: srv_comp; Check: IsWin64
+Source: "{#src_path}\binsrc\vsp\favicon\*"; DestDir: "{app}\vsp\favicon"; Flags: 64bit; Components: srv_comp; Check: IsWin64
 
 Source: "{#bin_path}\virt_http.dll"; DestDir: "{app}\lib"; Flags: 64bit; Components: srv_comp; Check: IsWin64
 Source: "{#bin_path}\virtclr.dll"; DestDir: "{app}\lib"; Flags: 64bit; Components: srv_comp; Check: IsWin64
