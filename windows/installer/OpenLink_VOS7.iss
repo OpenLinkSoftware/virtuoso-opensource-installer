@@ -1,6 +1,6 @@
 #define AppVersion "7.2"
-#define AppVersionFull "7.2.5.1"
-#define AppCopyright="Copyright (C) 1998-2020 OpenLink Software"
+#define AppVersionFull "7.2.7"
+#define AppCopyright="Copyright (C) 1998-2022 OpenLink Software"
 #define AppId="{36EC02B5-E3FB-402C-858A-8EF4ADDD6EFC}"
 ;#define AppVersion GetFileVersion(AddBackslash(SourcePath) + "vos\bin\virtuoso-t.exe")
 
@@ -90,11 +90,12 @@ Source: "{#bin_path}\libvirtuoso-t.dll"; DestDir: "{app}\bin"; Flags: recursesub
 Source: "{#bin_path}\virtodbc.dll"; DestDir: "{app}\bin"; Flags: 64bit replacesameversion ignoreversion; Components: cln_comp; Check: IsWin64
 Source: "{#bin_path}\virtoledb.dll"; DestDir: "{app}\bin"; Flags: 64bit replacesameversion ignoreversion; Components: cln_comp; Check: IsWin64
 
-Source: "{#sdk_path}\sslsdk\out32dll\libeay32.dll"; DestDir: "{app}\bin"; Flags: 64bit; Components: srv_comp; Check: IsWin64
-Source: "{#sdk_path}\sslsdk\out32dll\ssleay32.dll"; DestDir: "{app}\bin"; Flags: 64bit; Components: srv_comp; Check: IsWin64
-Source: "{#sdk_path}\wbxml2\expat\libexpat.dll"; DestDir: "{app}\bin"; Flags: 64bit; Components: srv_comp; Check: IsWin64
-Source: "{#sdk_path}\wbxml2\libwbxml2.dll"; DestDir: "{app}\bin"; Flags: 64bit; Components: srv_comp; Check: IsWin64
+;;Source: "{#sdk_path}\sslsdk\out32dll\libeay32.dll"; DestDir: "{app}\bin"; Flags: 64bit; Components: srv_comp; Check: IsWin64
+;;Source: "{#sdk_path}\sslsdk\out32dll\ssleay32.dll"; DestDir: "{app}\bin"; Flags: 64bit; Components: srv_comp; Check: IsWin64
+;;Source: "{#sdk_path}\wbxml2\expat\libexpat.dll"; DestDir: "{app}\bin"; Flags: 64bit; Components: srv_comp; Check: IsWin64
+;;Source: "{#sdk_path}\wbxml2\libwbxml2.dll"; DestDir: "{app}\bin"; Flags: 64bit; Components: srv_comp; Check: IsWin64
 Source: "{#sdk_path}\php56\php5ts.dll"; DestDir: "{app}\bin"; Flags: 64bit; Components: srv_comp; Check: IsWin64
+Source: "{#sdk_path}\libxml\lib\libxml2.dll"; DestDir: "{app}\bin"; Flags: 64bit; Components: srv_comp; Check: IsWin64
 
 Source: "{#support_path}\virtuoso.ini"; DestDir: "{app}\database"; Flags: 64bit; Components: srv_comp; Check: IsWin64
 
@@ -104,7 +105,7 @@ Source: "{#src_path}\CREDITS.md"; DestDir: "{app}\doc"; Flags: 64bit; Components
 Source: "{#src_path}\INSTALL.md"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
 Source: "{#src_path}\LICENSE.md"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
 Source: "{#src_path}\NEWS.md"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
-Source: "{#src_path}\README"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
+Source: "{#src_path}\README.md"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
 Source: "{#src_path}\README.GIT.md"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
 Source: "{#src_path}\README.UPGRADE.md"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
 Source: "{#src_path}\README.WINDOWS.md"; DestDir: "{app}\doc"; Flags: 64bit; Components: srv_comp cln_comp; Check: IsWin64
@@ -125,6 +126,8 @@ Source: "{#bin_path}\wikiv.dll"; DestDir: "{app}\hosting"; Flags: 64bit replaces
 Source: "{#bin_path}\geos.dll"; DestDir: "{app}\hosting"; Flags: 64bit replacesameversion ignoreversion; Components: srv_comp; Check: IsWin64
 Source: "{#bin_path}\proj4.dll"; DestDir: "{app}\hosting"; Flags: 64bit replacesameversion ignoreversion; Components: srv_comp; Check: IsWin64
 Source: "{#bin_path}\shapefileio.dll"; DestDir: "{app}\hosting"; Flags: 64bit replacesameversion ignoreversion; Components: srv_comp; Check: IsWin64
+Source: "{#bin_path}\graphql.dll"; DestDir: "{app}\hosting"; Flags: 64bit replacesameversion ignoreversion; Components: srv_comp; Check: IsWin64
+Source: "{#src_path}\binsrc\graphql\introspection\*"; DestDir: "{app}\hosting\graphql\introspection"; Flags: 64bit; Components: srv_comp; Check: IsWin64
 
 
 Source: "{#sdk_path}\php56\ext\php_bcmath.dll"; DestDir: "{app}\hosting\php"; Flags: 64bit; Components: srv_comp; Check: IsWin64
@@ -175,6 +178,7 @@ Source: "{#src_path}\binsrc\vsp\images\*"; DestDir: "{app}\vsp\images"; Flags: r
 Source: "{#src_path}\binsrc\vsp\favicon.ico"; DestDir: "{app}\vsp"; Flags: 64bit; Components: srv_comp; Check: IsWin64
 Source: "{#src_path}\binsrc\vsp\favicon\*"; DestDir: "{app}\vsp\favicon"; Flags: 64bit; Components: srv_comp; Check: IsWin64
 
+
 Source: "{#bin_path}\virt_http.dll"; DestDir: "{app}\lib"; Flags: 64bit; Components: srv_comp; Check: IsWin64
 Source: "{#bin_path}\virtclr.dll"; DestDir: "{app}\lib"; Flags: 64bit; Components: srv_comp; Check: IsWin64
 Source: "{#bin_net_path}\OpenLink.Data.Virtuoso.dll"; DestDir: "{app}\lib"; Flags: 64bit gacinstall; StrongAssemblyName: "OpenLink.Data.Virtuoso"; Components: cln_comp; Check: IsWin64
@@ -183,9 +187,15 @@ Source: "{#src_path}\binsrc\hibernate\virt_dialect.jar"; DestDir: "{app}\lib\hib
 Source: "{#src_path}\binsrc\jena\virt_jena.jar"; DestDir: "{app}\lib\jena"; Flags: 64bit; Components: cln_comp; Check: IsWin64
 Source: "{#src_path}\binsrc\jena2\virt_jena2.jar"; DestDir: "{app}\lib\jena2"; Flags: 64bit; Components: cln_comp; Check: IsWin64
 Source: "{#src_path}\binsrc\jena3\virt_jena3.jar"; DestDir: "{app}\lib\jena3"; Flags: 64bit; Components: cln_comp; Check: IsWin64
+Source: "{#src_path}\binsrc\jena4\virt_jena4.jar"; DestDir: "{app}\lib\jena4"; Flags: 64bit; Components: cln_comp; Check: IsWin64
 Source: "{#src_path}\binsrc\rdf4j\virt_rdf4j.jar"; DestDir: "{app}\lib\rdf4j"; Flags: 64bit; Components: cln_comp; Check: IsWin64
 Source: "{#src_path}\binsrc\rdf4j\create.xsl"; DestDir: "{app}\lib\rdf4j"; Flags: 64bit; Components: cln_comp; Check: IsWin64
 Source: "{#src_path}\binsrc\rdf4j\create-virtuoso.xsl"; DestDir: "{app}\lib\rdf4j"; Flags: 64bit; Components: cln_comp; Check: IsWin64
+
+Source: "{#src_path}\binsrc\rdf4j_4\virt_rdf4j_4.jar"; DestDir: "{app}\lib\rdf4j_4"; Flags: 64bit; Components: cln_comp; Check: IsWin64
+Source: "{#src_path}\binsrc\rdf4j_4\create.xsl"; DestDir: "{app}\lib\rdf4j_4"; Flags: 64bit; Components: cln_comp; Check: IsWin64
+Source: "{#src_path}\binsrc\rdf4j_4\create-virtuoso.xsl"; DestDir: "{app}\lib\rdf4j_4"; Flags: 64bit; Components: cln_comp; Check: IsWin64
+
 Source: "{#src_path}\binsrc\sesame2\virt_sesame2.jar"; DestDir: "{app}\lib\sesame2"; Flags: 64bit; Components: cln_comp; Check: IsWin64
 Source: "{#src_path}\binsrc\sesame2\create.xsl"; DestDir: "{app}\lib\sesame2"; Flags: 64bit; Components: cln_comp; Check: IsWin64
 Source: "{#src_path}\binsrc\sesame2\create-virtuoso.xsl"; DestDir: "{app}\lib\sesame2"; Flags: 64bit; Components: cln_comp; Check: IsWin64
