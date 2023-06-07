@@ -1,6 +1,6 @@
 #define AppVersion "7.2"
-#define AppVersionFull "7.2.7"
-#define AppCopyright="Copyright (C) 1998-2022 OpenLink Software"
+#define AppVersionFull "7.2.10"
+#define AppCopyright="Copyright (C) 1998-2023 OpenLink Software"
 #define AppId="{36EC02B5-E3FB-402C-858A-8EF4ADDD6EFC}"
 ;#define AppVersion GetFileVersion(AddBackslash(SourcePath) + "vos\bin\virtuoso-t.exe")
 
@@ -155,7 +155,13 @@ Source: "{#sdk_path}\php56\ext\php_xmlrpc.dll"; DestDir: "{app}\hosting\php"; Fl
 Source: "{#sdk_path}\php56\ext\php_xsl.dll"; DestDir: "{app}\hosting\php"; Flags: 64bit; Components: srv_comp; Check: IsWin64
 Source: "{#sdk_path}\php56\ext\php_zip.dll"; DestDir: "{app}\hosting\php"; Flags: 64bit; Components: srv_comp; Check: IsWin64
 
-Source: "{#support_path}\vad\*"; DestDir: "{app}\vad"; Flags: recursesubdirs 64bit; Components: srv_comp; Check: IsWin64
+Source: "{#support_path}\vad\conductor_dav.vad"; DestDir: "{app}\vad"; Flags: recursesubdirs 64bit; Components: srv_comp; Check: IsWin64
+Source: "{#support_path}\vad\dbpedia_dav.vad"; DestDir: "{app}\vad"; Flags: recursesubdirs 64bit; Components: srv_comp; Check: IsWin64
+Source: "{#support_path}\vad\fct_dav.vad"; DestDir: "{app}\vad"; Flags: recursesubdirs 64bit; Components: srv_comp; Check: IsWin64
+Source: "{#support_path}\vad\isparql_dav.vad"; DestDir: "{app}\vad"; Flags: recursesubdirs 64bit; Components: srv_comp; Check: IsWin64
+Source: "{#support_path}\vad\rdb2rdf_dav.vad"; DestDir: "{app}\vad"; Flags: recursesubdirs 64bit; Components: srv_comp; Check: IsWin64
+Source: "{#support_path}\vad\websockets_dav.vad"; DestDir: "{app}\vad"; Flags: recursesubdirs 64bit; Components: srv_comp; Check: IsWin64
+
 
 Source: "{#src_path}\binsrc\vsp\admin_style.html"; DestDir: "{app}\vsp"; Flags: 64bit; Components: srv_comp; Check: IsWin64
 Source: "{#src_path}\binsrc\vsp\bugsfixed.html"; DestDir: "{app}\vsp"; Flags: 64bit; Components: srv_comp; Check: IsWin64
